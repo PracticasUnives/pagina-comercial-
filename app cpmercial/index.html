@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f3ea" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="description" content="Sabores mexicanos de temporada, hechos para compartir. Pide en línea en Casa Maíz." />
+    <title>Casa Maíz — Cocina mexicana de temporada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script async src="https://pay.google.com/gp/p/js/pay.js"></script>
+    <script defer src="https://applepay.cdn-apple.com/jsapi/v1.3.8/apple-pay-sdk.js" integrity="sha384-u/9mOkmShCO0v+dqCAZFhiutJuORfzvuyM5i+676iy7mLSWS6rlllHrIt15f/mqH" crossorigin="anonymous"></script>
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="announcement"><span>Hecho con calma, servido con cariño</span><span class="announcement-dot">✳</span><span>Pedidos para recoger o recibir en casa</span></div>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Casa Maíz, inicio">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 40"><path d="M18 3c-7 5-10 14-7 25 1 4 4 7 7 9 3-2 6-5 7-9 3-11 0-20-7-25Z"/><path d="M18 7v26M18 17l-6-5m6 12 7-6m-7 12-6-4"/></svg></span>
+        <span class="brand-name">casa <b>maíz</b><small>COCINA MEXICANA</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal"><a href="#carta">La carta</a><a href="#historia">Nuestra cocina</a><a href="#visitanos">Visítanos</a></nav>
+      <button class="cart-trigger" id="open-cart" type="button" aria-label="Abrir carrito"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L21 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span>Tu pedido</span><b class="cart-count" id="cart-count">0</b></button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="overline"><span class="overline-line"></span> UNA MESA LLENA DE MÉXICO</p>
+          <h1>El sabor de<br />sentirse <em>en casa.</em></h1>
+          <p class="hero-intro">Cocina mexicana de temporada, ingredientes que cuentan su origen y recetas para compartir sin prisa.</p>
+          <a class="button button-dark" href="#carta">Explora la carta <span aria-hidden="true">↗</span></a>
+          <div class="hero-note"><span class="note-star">✳</span><span>Una cocina cercana.<br /><strong>Un poquito extraordinaria.</strong></span></div>
+        </div>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1500&q=85" alt="Mesa con platos mexicanos preparados para compartir" />
+          <div class="image-caption"><span>COCINA HECHA AL MOMENTO</span><span>CDMX · MÉXICO</span></div>
+          <div class="hero-stamp" aria-label="Sabor de origen"><span>DE LA MILPA</span><b>✳</b><span>A TU MESA</span></div>
+        </div>
+        <div class="hero-side-label">COCINA MEXICANA · DESDE NUESTRA MESA</div>
+      </section>
+
+      <section class="welcome-strip" aria-label="Nuestra cocina"><p>Del comal a tu mesa</p><span>✳</span><p>Producto de temporada</p><span>✳</span><p>Siempre hay lugar para uno más</p></section>
+
+      <section class="menu-section" id="carta">
+        <div class="section-heading">
+          <div><p class="overline"><span class="overline-line"></span> AL CENTRO DE LA MESA</p><h2>Hoy se antoja <em>algo rico.</em></h2></div>
+          <p class="section-aside">Sabores conocidos, ingredientes de aquí y el gusto de comer juntos.</p>
+        </div>
+        <div class="menu-controls"><div class="category-list" role="group" aria-label="Filtrar por categoría"><button class="category active" data-category="todos">Todo <span>06</span></button><button class="category" data-category="para-compartir">Para compartir</button><button class="category" data-category="platos">Platos</button><button class="category" data-category="bebidas">Bebidas</button><button class="category" data-category="postres">Postres</button></div><span class="menu-disclaimer">Carta de muestra · Precios en MXN</span></div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <div class="menu-foot"><span>¿Se te antojó algo?</span><button class="text-button" id="menu-cart">Arma tu pedido <span aria-hidden="true">↗</span></button></div>
+      </section>
+
+      <section class="story-section" id="historia">
+        <div class="story-image"><img src="https://images.unsplash.com/photo-1504545102780-26774c1bb073?auto=format&fit=crop&w=1200&q=85" alt="Ingredientes frescos en una cocina mexicana" loading="lazy" /><span class="story-image-tag">LO BUENO SE COMPARTE</span></div>
+        <div class="story-copy"><p class="overline"><span class="overline-line"></span> DE AQUÍ, CON MUCHO CARIÑO</p><h2>Lo mexicano<br />se siente <em>cerca.</em></h2><p>Nos inspira la cocina que reúne: el olor a maíz recién hecho, la salsa al centro y ese “¿te sirvo más?” que siempre llega a tiempo.</p><p>Preparamos cada plato para que la mesa se sienta un poco más tuya.</p><a class="text-button" href="#visitanos">Conoce nuestra cocina <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section class="visit-section" id="visitanos"><div><p class="overline"><span class="overline-line"></span> NOS ENCANTARÁ VERTE</p><h2>Tu mesa te <em>espera.</em></h2></div><div class="visit-details"><p>Una comida rica sabe mejor cuando se comparte.<br />Pide para recoger o recibir en casa.</p><a href="#carta" class="button button-light">Haz tu pedido <span aria-hidden="true">↗</span></a></div><div class="visit-flower" aria-hidden="true">✳</div></section>
+    </main>
+    <footer class="site-footer"><a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 40"><path d="M18 3c-7 5-10 14-7 25 1 4 4 7 7 9 3-2 6-5 7-9 3-11 0-20-7-25Z"/><path d="M18 7v26M18 17l-6-5m6 12 7-6m-7 12-6-4"/></svg></span><span class="brand-name">casa <b>maíz</b><small>COCINA MEXICANA</small></span></a><span>Un lugar para volver a la mesa.</span><span>© 2026 Casa Maíz · Sitio de demostración</span></footer>
+
+    <div class="cart-backdrop" id="cart-backdrop" hidden></div>
+    <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" aria-modal="true" role="dialog" aria-hidden="true">
+      <div class="cart-header"><div><p class="overline"><span class="overline-line"></span> ALGO RICO VIENE EN CAMINO</p><h2 id="cart-title">Tu pedido</h2></div><button class="close-cart" id="close-cart" type="button" aria-label="Cerrar carrito">×</button></div>
+      <div class="fulfillment"><span>¿Cómo lo quieres?</span><div class="fulfillment-options"><button class="fulfillment-option selected" type="button" data-mode="pickup">Recoger</button><button class="fulfillment-option" type="button" data-mode="delivery">A domicilio</button></div></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-bottom"><div class="cart-subtotal"><span>Subtotal</span><strong id="cart-subtotal">$0</strong></div><p class="checkout-note">El costo de entrega se confirma al finalizar el pedido.</p><button class="button button-dark checkout-button" id="checkout-button" type="button" disabled>Continuar con Google Pay <span aria-hidden="true">↗</span></button><div id="google-pay-container" class="google-pay-container"></div><button class="apple-pay-button" id="apple-pay-button" type="button" aria-label="Pagar con Apple Pay" hidden></button><p class="payment-caption" id="payment-caption">Pagos de prueba · Sin cargos reales</p><p class="cart-feedback" id="cart-feedback" role="status" aria-live="polite"></p></div>
+    </aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <template id="empty-cart-template"><div class="empty-cart"><span class="empty-doodle" aria-hidden="true">✳</span><h3>La mesa está esperando.</h3><p>Agrega algo rico de la carta y aquí lo vas armando.</p><button class="text-button" type="button" data-close-cart>Ver la carta <span aria-hidden="true">↗</span></button></div></template>
+  </body>
+</html>
